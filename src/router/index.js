@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import Profile from '../views/Profile.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
+import Register from '../views/Register.vue'
 
 const routes = [
   {
@@ -27,6 +28,12 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: Login,
+    meta: { requiresAuth2: true }
+  },
+  {
+    path: '/Register',
+    name: 'Register',
+    component: Register,
     meta: { requiresAuth2: true }
   },
   {

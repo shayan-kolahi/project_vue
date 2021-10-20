@@ -20,6 +20,9 @@
             <router-link class="nav-link active" to="/Login" v-if="!$store.state.isAuthenticated">Login</router-link>
         </li>
         <li class="nav-item">
+            <router-link class="nav-link active" to="/Register" v-if="!$store.state.isAuthenticated">Register</router-link>
+        </li>
+        <li class="nav-item">
             <router-link class="nav-link active" to="/Logout" v-if="$store.state.isAuthenticated">Logout</router-link>
         </li>
       </ul>
