@@ -12,7 +12,7 @@ export default {
     }
   },
   mounted(){
-    this.tex = this.$route.query.shayan
+    this.tex = this.$route.query.Name
   }, 
 }
 </script>

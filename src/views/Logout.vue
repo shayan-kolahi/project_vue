@@ -10,7 +10,7 @@ export default {
   methods:{
       dologout(){
         this.$store.commit("logout")
-        this.$router.push("/login")
+        this.$router.replace({path: '/login' , query : ""})
       }
   }  
 }

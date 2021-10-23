@@ -70,7 +70,7 @@ export default {
 
         if (condition) {
           this.$store.commit("login" , `${this.Name} : ${this.Password}`)
-          this.$router.push("/profile")
+          this.$router.replace({path: '/profile' , query : {Name : this.Name.toLowerCase()}})
         }
         
       }
