@@ -17,9 +17,6 @@
             <router-link class="nav-link active" to="/Profile" v-if="$store.state.isAuthenticated">Profile</router-link>
         </li>
         <li class="nav-item">
-            <router-link class="nav-link active" to="/Add" v-if="$store.state.isAuthenticated">Add</router-link>
-        </li>
-        <li class="nav-item">
             <router-link class="nav-link active" to="/Login" v-if="!$store.state.isAuthenticated">Login</router-link>
         </li>
         <li class="nav-item">
