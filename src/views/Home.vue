@@ -13,6 +13,7 @@
 <script>
 export default {
   name: 'Home',
+  
   data(){
     let art = localStorage.getItem('articles')
     art = JSON.parse(art);
