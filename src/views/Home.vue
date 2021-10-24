@@ -1,7 +1,6 @@
 <template>
   <div class="Home">
     <h1 class="text-center">Article page</h1>
-
     <articles v-for="(index, i) in arts" :key="i">
       <h3>
         <router-link :to="`/article/${index.slug}`">{{
