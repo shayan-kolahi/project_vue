@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import store from '../store'
-import About from '../views/About.vue'
+import Todo from '../views/Todo.vue'
 import Profile from '../views/Profile.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Page from '../views/Page.vue'
+import Api from '../views/Api.vue'
 
 const routes = [
   {
@@ -20,14 +21,20 @@ const routes = [
     component: Page
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About
+    path: '/Todo',
+    name: 'Todo',
+    component: Todo
   },
   {
     path: '/Profile',
     name: 'Profile',
     component: Profile,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/Api',
+    name: 'Api',
+    component: Api,
     meta: { requiresAuth: true }
   },
   {

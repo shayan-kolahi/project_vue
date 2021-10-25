@@ -11,11 +11,16 @@
             <router-link class="nav-link active" to="/">Home</router-link>
         </li>
         <li class="nav-item">
-            <router-link class="nav-link active" to="/About">About</router-link>
+            <router-link class="nav-link active" to="/Todo">Todo</router-link>
         </li>
         <li class="nav-item">
             <router-link class="nav-link active" to="/Profile" v-if="$store.state.isAuthenticated">Profile</router-link>
         </li>
+        <li class="nav-item">
+            <router-link class="nav-link active" to="/Api" v-if="$store.state.isAuthenticated">Api</router-link>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
             <router-link class="nav-link active" to="/Login" v-if="!$store.state.isAuthenticated">Login</router-link>
         </li>
@@ -33,12 +38,11 @@
 
 <style scoped>
 
-#nav a {
+#nav a , .nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
-#nav a.router-link-exact-active {
+#nav a.router-link-exact-active , .nav a.router-link-exact-active {
   color: #42b983;
 }
 .logo{
