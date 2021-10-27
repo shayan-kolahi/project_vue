@@ -5,17 +5,19 @@
 
 
 
+
 </div>
 </template>
 
 
 <script>
+import axios from "axios";
 export default {
-  data(){
-    return{
-    }
-  },
+  created() {
+    axios.get("https://api.coindesk.com/v1/bpi/currentprice.json").then((result) => {
+      console.log(result);
 
-
-}
+    })
+  }
+};
 </script>
