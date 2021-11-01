@@ -57,8 +57,12 @@
 
               <div class="card">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item" v-for="(index , i) in bpi" :key="i">
-                    {{ index.code }} : 
+                  <li
+                    class="list-group-item"
+                    v-for="(index, i) in bpi"
+                    :key="i"
+                  >
+                    {{ index.code }} :
                     {{ index.rate }}
                   </li>
                 </ul>
@@ -68,7 +72,36 @@
         </div>
       </div>
     </section>
+    <hr />
+    <section>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <button @click="ApiClick" type="button" class="mb-3 btn btn-primary">
+          Click
+        </button>
+        <div class="w-100 d-flex flex-wrap">
 
+
+          <div 
+          class="col-12 col-lg-4 p-2" 
+          v-for="(index , i) in user" 
+          :key="i">
+          <div class="card">
+            <div class="card-header">
+              id is : {{ index.id }}
+            </div>
+            <div class="card-body" style="height: 240px ;">
+              <h5 class="card-title">{{ index.title }}</h5>
+              <p class="card-text my-4">
+                {{ index.body }}
+              </p>
+            </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
     <hr />
   </div>
 </template>
@@ -85,6 +118,8 @@ export default {
       Bitcoin: [],
       time: [],
       bpi: [],
+      user: [],
+      status: 0,
     };
   },
   methods: {
@@ -107,6 +142,11 @@ export default {
           this.time = result.data.time.updated;
           this.bpi = result.data.bpi;
         });
+    },
+    ApiClick() {
+      axios.get("https://jsonplaceholder.typicode.com/posts").then((result) => {
+        this.user = result.data;
+      });
     },
   },
   mounted() {
