@@ -38,7 +38,12 @@
         <div class="card-body">
           <h5 class="card-title">random images dog</h5>
           <button @click="apidog" class="btn btn-primary">
-            click to change image
+          <h6 v-if="!loding2" class="m-0">click to change image</h6>
+
+          <div v-if="loding2" class="spinner-border text-light" role="status">
+            <span class="sr-only"></span>
+          </div>
+
           </button>
         </div>
       </div>
@@ -75,30 +80,27 @@
     <hr />
     <section>
       <div class="d-flex flex-column align-items-center justify-content-center">
+        
         <button @click="ApiClick" type="button" class="mb-3 btn btn-primary">
-          Click
-        </button>
-        <div class="w-100 d-flex flex-wrap">
+          <h6 v-if="!loding" class="m-0">Click</h6>
 
-
-          <div 
-          class="col-12 col-lg-4 p-2" 
-          v-for="(index , i) in user" 
-          :key="i">
-          <div class="card">
-            <div class="card-header">
-              id is : {{ index.id }}
-            </div>
-            <div class="card-body" style="height: 240px ;">
-              <h5 class="card-title">{{ index.title }}</h5>
-              <p class="card-text my-4">
-                {{ index.body }}
-              </p>
-            </div>
-            </div>
+          <div v-if="loding" class="spinner-border text-light" role="status">
+            <span class="sr-only"></span>
           </div>
 
-
+        </button>
+        <div class="w-100 d-flex flex-wrap">
+          <div class="col-12 col-lg-4 p-2" v-for="(index, i) in user" :key="i">
+            <div class="card">
+              <div class="card-header">id is : {{ index.id }}</div>
+              <div class="card-body" style="height: 240px ;">
+                <h5 class="card-title">{{ index.title }}</h5>
+                <p class="card-text my-4">
+                  {{ index.body }}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -120,6 +122,8 @@ export default {
       bpi: [],
       user: [],
       status: 0,
+      loding: false,
+      loding2: false,
     };
   },
   methods: {
@@ -130,8 +134,10 @@ export default {
       });
     },
     apidog() {
+      this.loding2 = true;
       axios.get("https://dog.ceo/api/breeds/image/random").then((result) => {
         this.dOg = result.data;
+        this.loding2 = false;
       });
     },
     bit() {
@@ -144,8 +150,10 @@ export default {
         });
     },
     ApiClick() {
+      this.loding = true;
       axios.get("https://jsonplaceholder.typicode.com/posts").then((result) => {
         this.user = result.data;
+        this.loding = false;
       });
     },
   },
