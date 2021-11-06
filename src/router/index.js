@@ -8,6 +8,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Page from '../views/Page.vue'
 import Api from '../views/Api.vue'
+import Shopping from '../views/Shopping.vue'
 
 const routes = [
   {
@@ -35,6 +36,12 @@ const routes = [
     path: '/Api',
     name: 'Api',
     component: Api,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/Shopping',
+    name: 'Shopping',
+    component: Shopping,
     meta: { requiresAuth: true }
   },
   {

@@ -19,6 +19,9 @@
         <li class="nav-item">
             <router-link class="nav-link active" to="/Api" v-if="$store.state.isAuthenticated">Api</router-link>
         </li>
+        <li class="nav-item">
+            <router-link class="nav-link active" to="/Shopping" v-if="$store.state.isAuthenticated">Shopping</router-link>
+        </li>
       </ul>
       <ul class="nav navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
