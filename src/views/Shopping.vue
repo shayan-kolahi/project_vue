@@ -7,19 +7,17 @@
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" :src="index.image" alt="Card image cap" />
           <div class="card-body">
-            <h5 class="card-title">{{index.category}}</h5>
+            <h5 class="card-title">{{ index.category }}</h5>
             <p class="card-text">
-              {{index.description}}
+              {{ index.description }}
             </p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">price : {{index.price}}</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+            <li class="list-group-item">price : {{ index.price }}</li>
+            <li class="list-group-item">rating : {{ index.rating.count }}</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <button class="btn btn-primary" @click="add(index.id)">add to cart</button>
           </div>
         </div>
       </div>
@@ -36,7 +34,11 @@ export default {
       list: [],
     };
   },
-
+  methods:{
+    add(value){
+      console.log(value);
+    }
+  },
   mounted() {
     axios.get("https://fakestoreapi.com/products").then((result) => {
       this.list = result.data;
@@ -45,3 +47,16 @@ export default {
   },
 };
 </script>
+<style scoped>
+.card-img-top {
+  height: 250px;
+  object-fit: contain;
+}
+.card-text:last-child {
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px 5px;
+  text-align: justify;
+  line-height: 2;
+}
+</style>
