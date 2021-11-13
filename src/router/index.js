@@ -9,6 +9,7 @@ import Register from '../views/Register.vue'
 import Page from '../views/Page.vue'
 import Api from '../views/Api.vue'
 import Shopping from '../views/Shopping.vue'
+import Cart from '../views/Cart.vue'
 
 const routes = [
   {
@@ -30,6 +31,12 @@ const routes = [
     path: '/Profile',
     name: 'Profile',
     component: Profile,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/Cart',
+    name: 'Cart',
+    component: Cart,
     meta: { requiresAuth: true }
   },
   {

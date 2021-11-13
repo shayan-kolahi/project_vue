@@ -156,6 +156,13 @@ export default {
         this.loding = false;
       });
     },
+    ApiClick() {
+      this.loding = true;
+      axios.get("https://jsonplaceholder.typicode.com/posts").then((result) => {
+        this.user = result.data;
+        this.loding = false;
+      });
+    },
   },
   mounted() {
     this.apidog();
