@@ -10,12 +10,19 @@ import Page from '../views/Page.vue'
 import Api from '../views/Api.vue'
 import Shopping from '../views/Shopping.vue'
 import Cart from '../views/Cart.vue'
+import Watch from '../views/Watch.vue'
+import TotalWatch from '../views/TotalWatch.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/TotalWatch',
+    name: 'TotalWatch',
+    component: TotalWatch
   },
   {
     path: '/article/:slug',
@@ -49,6 +56,12 @@ const routes = [
     path: '/Shopping',
     name: 'Shopping',
     component: Shopping,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/Watch',
+    name: 'Watch',
+    component: Watch,
     meta: { requiresAuth: true }
   },
   {

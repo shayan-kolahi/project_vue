@@ -9,5 +9,7 @@ import 'popper.js/dist/popper.min.js';
 import * as Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Vue3PersianDatetimePicker from 'vue3-persian-datetime-picker'
+
 const app = Vue.createApp(App)
-app.use(VueAxios, axios).use(store).use(router).mount('#app')
+app.component('DatePicker', Vue3PersianDatetimePicker).use(VueAxios, axios).use(store).use(router).mount('#app')
