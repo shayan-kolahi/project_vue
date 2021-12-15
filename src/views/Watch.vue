@@ -47,6 +47,7 @@
 import DatePicker from "vue3-persian-datetime-picker";
 export default {
   data() {
+
     return {
       name: "",
       date: "",
@@ -60,21 +61,34 @@ export default {
     submit() {
       if (
         this.name !== "" &&
-        this.name == "shayan" &&
+        this.name === "shayan" &&
         this.date !== "" &&
         this.time_entrance !== "" &&
         this.time_leaving !== "" &&
         this.Explanation !== ""
       ) {
-        let total = [this.name,this.date,this.time_entrance,this.time_leaving,this.Explanation];
-        JSON.stringify(total);
-        localStorage.setItem("mytime", total);
-        this.$router.replace({path: '/TotalWatch' , query : ""})
+        let setobjecr = {
+          name : this.name ,
+          date : this.date ,
+          time_entrance : this.time_entrance ,
+          time_leaving : this.time_leaving ,
+          Explanation : this.Explanation ,
+        }
+      let arr = JSON.parse(localStorage.getItem("arr"))
+      if(arr && Array.isArray(arr)){
+       arr.push(setobjecr)
+      }else{
+      arr=[];
+      arr.push(setobjecr)
+      }
+      localStorage.setItem("arr" , JSON.stringify(arr))
+        this.$router.replace({ path: "/TotalWatch"});
       } else {
         alert("Please enter the fields correctly !");
       }
     },
   },
+  mounted() {}
 };
 </script>
 
